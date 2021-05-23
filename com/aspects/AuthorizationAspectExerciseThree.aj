@@ -1,4 +1,4 @@
-package aspects;
+package com.aspects;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.*;
 
@@ -21,7 +22,7 @@ public aspect AuthorizationAspectExerciseThree {
 	
 	static {
 		// load a file with a password and login
-		File userFile = new File("./src/aspects/user_password_db.txt");
+		File userFile = new File("./src/com/aspects/user_password_db.txt");
 		FileReader userFileReader = null;
 		try {
 			userFileReader = new FileReader(userFile);
@@ -55,11 +56,14 @@ public aspect AuthorizationAspectExerciseThree {
 		insertedUser = scanner.nextLine();
 		System.out.println("Insert password: ");
 		insertedPassword = scanner.nextLine();
-		//scanner.close();
+	}
+	
+	Object around(Customer customer) : callMethodCut(customer) { 
 		foundPassword = userPasswordMap.get(insertedUser);
 		if(!(userPasswordMap.containsKey(insertedUser) &&  foundPassword.equals(insertedPassword))) { 
 			System.out.println("Error occured while inserting the user and password");
 			System.exit(1);
 		}
+		return Optional.empty();
 	}
 }

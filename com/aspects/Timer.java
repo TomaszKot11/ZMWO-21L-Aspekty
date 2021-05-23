@@ -1,4 +1,4 @@
-package aspects;
+package com.aspects;
 
 /*
  * Prosta klasa implementujaca mechanizm stopera

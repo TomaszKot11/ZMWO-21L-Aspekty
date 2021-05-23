@@ -1,4 +1,4 @@
-package aspects;
+package com.aspects;
 
 import java.io.PrintStream;
 import java.util.Calendar;
@@ -21,7 +21,7 @@ public aspect MessageTimeDisplay
 	// Pobiera każde wywołanie metody które jest zgodne z patternem z call(* PrintStream.print*(..))
 	// Ten pattern -> * PrintStream.print*(..) oznacza, że na obiekcie klasy PrintStream metody print*() zwracajacej
 	// dowolny tym
-	pointcut printcut(): call(* PrintStream.print*(..)) && !within(aspects..*);
+	pointcut printcut(): call(* PrintStream.print*(..)) && !within(com.aspects..*);
 
 	// Przed wyswietleniem wiadomosci podajemy czas jej nadejscia
 	before(): printcut()
