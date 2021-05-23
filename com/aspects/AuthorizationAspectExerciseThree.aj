@@ -64,6 +64,6 @@ public aspect AuthorizationAspectExerciseThree {
 			System.out.println("Error occured while inserting the user and password");
 			System.exit(1);
 		}
-		return Optional.empty();
+		return proceed(customer);
 	}
 }

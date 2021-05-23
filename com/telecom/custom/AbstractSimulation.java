@@ -48,6 +48,7 @@ public abstract class AbstractSimulation {
         say("mik calls crista...");
         
         Optional<Call> c2 = mik.call(crista);
+
         c2.ifPresent(call -> {
             say("crista accepts...");
             crista.pickup(call);

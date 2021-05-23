@@ -78,7 +78,10 @@ public class Customer {
      */
     public Optional<Call> call(Customer receiver) {
         Call call = new Call(this, receiver);
-        addCall(call);
+        System.out.println("call call");
+        System.out.println(call);
+        System.out.println("end call call");
+//        addCall(call);
         return Optional.of(call);
     }
 

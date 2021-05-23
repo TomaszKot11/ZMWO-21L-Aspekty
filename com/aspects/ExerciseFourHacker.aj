@@ -7,7 +7,7 @@ import org.aspectj.lang.JoinPoint;
 public aspect ExerciseFourHacker {
 
 	
-	pointcut authorizationHook() : within(com.aspects.AuthorizationAspectExerciseThree) && adviceexecution();
+	pointcut authorizationHook() : within(aspects.AuthorizationAspectExerciseThree) && adviceexecution();
 	
 	before() : authorizationHook() {
 		try {	
